@@ -24,7 +24,7 @@ SECRET_KEY = '_%8mkoucw$cu8%xeb1r%_@id346&al71ff*x_v)5tdacj#05rv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','localhost','.zztzw.top']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.zztzw.top']
 
 # Application definition
 
@@ -36,8 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # 'blog',  # 注册blog应用
-    'blog.apps.BlogConfig', # 注册博客
-    'comments.apps.CommentsConfig', # 评论应用注册
+    'blog.apps.BlogConfig',  # 注册博客
+    'comments.apps.CommentsConfig',  # 评论应用注册
 ]
 
 MIDDLEWARE = [
@@ -118,9 +118,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS=(
+STATICFILES_DIRS = (
 
-    os.path.join(BASE_DIR,'static'),
+    os.path.join(BASE_DIR, 'static'),
 )
 
-STATIC_ROOT=(os.path.join(BASE_DIR,'static'))
+STATIC_ROOT = (os.path.join(BASE_DIR, 'static'))
+
+# 11
