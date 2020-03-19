@@ -30,7 +30,7 @@ def deploy(c):
 
     # 先停止应用
     with c.cd(supervisor_conf_path):
-        cmd = 'supervisorctl stop -c {}'.format(supervisor_program_name)
+        cmd = 'supervisorctl stop {}'.format(supervisor_program_name)
         c.run(cmd)
 
     # 进入项目根目录，从 Git 拉取最新代码
@@ -47,5 +47,5 @@ def deploy(c):
 
     # 重新启动应用
     with c.cd(supervisor_conf_path):
-        cmd = 'supervisorctl start -c {}'.format(supervisor_program_name)
+        cmd = 'supervisorctl start {}'.format(supervisor_program_name)
         c.run(cmd)
