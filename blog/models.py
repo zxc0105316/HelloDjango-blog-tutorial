@@ -55,13 +55,24 @@ class Post(models.Model):
     tags = models.ManyToManyField('Tag',blank=True,verbose_name="标签")
 
 
+    # 新增views字段记录阅读量 editable 指不可后台修改
+    views = models.PositiveIntegerField(default=0,editable=False)
+
     author = models.ForeignKey(User,on_delete=models.CASCADE,verbose_name="作者")
     class Meta:
         verbose_name = '文章'
         verbose_name_plural = verbose_name
         ordering = ['-create_time']
+
+
+
     def __str__(self):
         return self.title
+
+    def increase_views(self):
+        self.views +=1
+        self.save(update_fields=['views'])
+
 
     # 重写了父类的save方法，同时要在方法内再调用父类的save方法
     def save(self,*args,**kwargs):

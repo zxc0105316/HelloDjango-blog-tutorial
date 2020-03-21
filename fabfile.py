@@ -44,7 +44,7 @@ def deploy(c):
         c.run('pipenv install --deploy --ignore-pipfile')
         c.run('pipenv run python manage.py migrate')
         c.run('pipenv run python manage.py collectstatic --noinput')
-# ·
+# ·。。
     # 重新启动应用
     with c.cd(supervisor_conf_path):
         cmd = 'supervisorctl start {}'.format(supervisor_program_name)
