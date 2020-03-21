@@ -35,7 +35,7 @@ def deploy(c):
 
     # 进入项目根目录，从 Git 拉取最新代码
     with c.cd(project_root_path):
-        cmd = 'sudo git pull'
+        cmd = 'git pull'
         responders = _get_github_auth_responders()
         c.run(cmd, watchers=responders)
 
