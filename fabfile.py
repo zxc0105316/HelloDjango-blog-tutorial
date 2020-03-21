@@ -1,4 +1,4 @@
-#__author: tzw 
+# __author: tzw
 # date: 2020/3/19
 
 from fabric import task
@@ -41,11 +41,13 @@ def deploy(c):
 
     # 安装依赖，迁移数据库，收集静态文件
     with c.cd(project_root_path):
-        c.run('sudo pipenv install --deploy --ignore-pipfile')
-        c.run('sudo pipenv run python manage.py migrate')
-        c.run('sudo pipenv run python manage.py collectstatic --noinput')
+        c.run('pipenv install --deploy --ignore-pipfile')
+        c.run('pipenv run python manage.py migrate')
+        c.run('pipenv run python manage.py collectstatic --noinput')
 
     # 重新启动应用
     with c.cd(supervisor_conf_path):
         cmd = 'supervisorctl start {}'.format(supervisor_program_name)
         c.run(cmd)
+
+# sudo supervisorctl stop hellodjango-blog-tutorial
