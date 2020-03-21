@@ -1,16 +1,16 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "0642e78c53df4a737123e1af0ad3623e6b5af042a717c3f5cbc96effb8fc02c2"
+            "sha256": "ca55a479eb856ced9bf49df5c6ff0504bda35456591164c472c18d54a845adbe"
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "3.7"
+            "python_version": "3.5.2"
         },
         "sources": [
             {
                 "name": "pypi",
-                "url": "https://pypi.org/simple",
+                "url": "https://pypi.tuna.tsinghua.edu.cn/simple/",
                 "verify_ssl": true
             }
         ]
@@ -37,15 +37,16 @@
                 "sha256:1c557d7d0e871de1f5ccd5833f60fb2550652da6be2693c1e02300743d21500d",
                 "sha256:b02c06db6cf09c12dd25137e563b31700d3b80fcc4ad23abb7a315f2789819be"
             ],
+            "index": "pypi",
             "version": "==2019.3"
         },
-        "sqlparse": {
+         "sqlparse": {
             "hashes": [
                 "sha256:022fb9c87b524d1f7862b3037e541f68597a730a8843245c349fc93e1643dc4e",
                 "sha256:e162203737712307dfe78860cc56c8da8a852ab2ee33750e33aeadf38d12c548"
             ],
             "version": "==0.3.1"
-        }
-    },
+        }    
+},
     "develop": {}
 }
