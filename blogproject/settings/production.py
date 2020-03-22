@@ -114,7 +114,9 @@ ALLOWED_HOSTS = ['www.zztzw.top']
 # #     os.path.join(BASE_DIR, 'static'),
 # # )
 #
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-#
-# # 11
-#
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+HAYSTACK_CONNECTIONS['default']['URL'] = 'http://hellodjango_blog_tutorial_elasticsearch:9200/'
+
+# 11
+

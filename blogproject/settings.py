@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     # 'blog',  # 注册blog应用
     'blog.apps.BlogConfig',  # 注册博客
     'comments.apps.CommentsConfig',  # 评论应用注册
+    'pure_pagination',
 ]
 
 MIDDLEWARE = [

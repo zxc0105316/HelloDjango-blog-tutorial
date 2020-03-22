@@ -1,8 +1,13 @@
+from cryptography.utils import cached_property
 from django.db import models
 
 from django.contrib.auth.models import User
 
 from django.utils import timezone
+
+import re
+from django.utils.text import slugify
+from markdown.extensions.toc import TocExtension
 
 from django.urls import reverse
 import markdown
@@ -88,3 +93,38 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog:detail',kwargs={'pk':self.pk})
+
+
+
+
+    # property装饰器将方法转变为属性
+    @property
+    def toc(self):
+        return self.rich_content.get('toc', '')
+
+    @property
+    def body_html(self):
+        return self.rich_content.get('content', '')
+
+
+    # 进一步提供缓存功能的property装饰器
+    @cached_property
+    def rich_content(self):
+        body = self.body
+        return generate_rich_content(body)
+
+
+
+def generate_rich_content(value):
+    md = markdown.Markdown(
+        extensions=[
+            "markdown.extensions.extra",
+            "markdown.extensions.codehilite",
+            # 记得在顶部引入 TocExtension 和 slugify
+            TocExtension(slugify=slugify),
+        ]
+    )
+    content = md.convert(value)
+    m = re.search(r'<div class="toc">\s*<ul>(.*)</ul>\s*</div>', md.toc, re.S)
+    toc = m.group(1) if m is not None else ""
+    return {"content": content, "toc": toc}

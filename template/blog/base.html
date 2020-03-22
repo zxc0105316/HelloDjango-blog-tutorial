@@ -9,6 +9,13 @@
 <head>
     <title>Black &amp; White</title>
 
+        <style>
+        /* 搜索关键词高亮 */
+        span.highlighted {
+          color: red;
+        }
+    </style>
+
     <!-- meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -61,6 +68,12 @@
 </head>
 
 <body>
+
+<form role="search" method="get" id="searchform" action="{% url 'haystack_search' %}">
+    {% csrf_token %}
+  <input type="search" name="q" placeholder="搜索" required>
+  <button type="submit"><span class="ion-ios-search-strong"></span></button>
+</form>
 <div class="container">
     <header id="site-header">
         <div class="row">
@@ -128,7 +141,7 @@
                 {% show_tags %}
 
               <div class="rss">
-     <a href=""><span class="ion-social-rss-outline"></span> RSS 订阅</a>
+     <a href="{% url 'blog:rss' %} "><span class="ion-social-rss-outline"></span> RSS 订阅</a>
   </div>
             </aside>
         </div>

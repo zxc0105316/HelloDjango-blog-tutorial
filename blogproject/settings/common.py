@@ -33,6 +33,8 @@ INSTALLED_APPS = [
     # 'blog',  # 注册blog应用
     'blog.apps.BlogConfig',  # 注册博客
     'comments.apps.CommentsConfig',  # 评论应用注册
+    'pure_pagination',
+    'haystack',
 ]
 
 MIDDLEWARE = [
@@ -112,12 +114,36 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
+#
 # STATICFILES_DIRS = (
 #
 #     os.path.join(BASE_DIR, 'static'),
 # )
+#
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#
+# # 11
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-# 11
+# django-pure-pagination 分页设置
+PAGINATION_SETTINGS = {
+
+    'PAGE_RANGE_DISPLAYED':4 , # 当前分页条前后显示的页数总数  例如 3 4 5 6 7 ，5为当前页
+    'MARGIN_PAGES_DISPLAYED':2, # 分页条开头和结尾显示的页数  第一页 ， 最后一页
+    'SHOW_FIRST_PAGE_WHEN_INVAILD':True, # 当请求页不存在时，显示第一页
+}
+
+# 搜索设置
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'blog.elasticsearch2_ik_backend.Elasticsearch2SearchEngine',
+        'URL': '',
+        'INDEX_NAME': 'hellodjango_blog_tutorial',
+    },
+}
+# 搜索结果分页  10项结果为一页
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 10
+# 实时更新，每当有文章更新时就更新索引
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+
+HAYSTACK_CUSTOM_HIGHLIGHTER = 'blog.utils.Highlighter'
