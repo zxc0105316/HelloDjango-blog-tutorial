@@ -16,7 +16,7 @@ services:
       - database:/app/database
       - static:/app/static
     env_file:
-      - ..envs/.production
+      - .envs/.production
     ports:
       - "8000:8000"
     command: /start.sh
