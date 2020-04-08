@@ -120,3 +120,11 @@ HAYSTACK_CONNECTIONS['default']['URL'] = 'http://hellodjango_blog_tutorial_elast
 
 # 11
 
+
+#
+# yangxg@server:$ supervisord -c ~/etc/supervisord.conf
+# -c 指定 Supervisr 启动时的配置文件。
+#
+# 进入 supervisorctl 进程管理控制台：
+#
+# yangxg@server:$ supervisorctl -c ~/etc/supervisord.conf
