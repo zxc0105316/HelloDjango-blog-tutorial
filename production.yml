@@ -41,7 +41,7 @@ services:
     image: hellodjango_blog_tutorial_elasticsearch
     container_name: hellodjango_blog_tutorial_elasticsearch
     volumes:
-      - esdata:/usr/share/elasticsearch/data
+      - esdata: /usr/share/elasticsearch/data
     ports:
       - "9200:9200"
     environment:
