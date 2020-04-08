@@ -27,7 +27,7 @@ services:
     image: elasticsearch_local
     container_name: elasticsearch_local
     volumes:
-      - esdata_local:/usr/share/elasticsearch/data
+      - esdata_local: /usr/share/elasticsearch/data
     ports:
       - "9200:9200"
     environment:
