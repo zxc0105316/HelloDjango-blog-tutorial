@@ -107,18 +107,18 @@ ALLOWED_HOSTS = ['*']
 #
 # STATIC_URL = '/static/'
 #
-STATICFILES_DIRS = (
-
-     os.path.join(BASE_DIR, 'static'),
-)
+# STATICFILES_DIRS = (
+#
+#      os.path.join(BASE_DIR, 'static'),
+# )
 
 
 
 HAYSTACK_CONNECTIONS['default']['URL'] = 'http://elasticsearch_local:9200/'
 
 
-#
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-#
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 # # 11
 
