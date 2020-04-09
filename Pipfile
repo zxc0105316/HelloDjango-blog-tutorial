@@ -18,6 +18,7 @@ django-haystack = "*"
 elasticsearch = ">=2,<3"
 #cryptography = "*"
 #cryptography = "*"
+cryptography = "*"
 
 [requires]
 python_version = "3.6.4"
