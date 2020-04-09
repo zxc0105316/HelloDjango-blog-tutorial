@@ -12,7 +12,9 @@ RUN pip install pipenv -i https://pypi.douban.com/simple
 
 COPY Pipfile /app/Pipfile
 COPY Pipfile.lock /app/Pipfile.lock
+
 RUN pipenv install --system --deploy --ignore-pipfile
+RUN pipenv install cryptography
 
 COPY . /app
 
